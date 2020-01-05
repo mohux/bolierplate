@@ -6,7 +6,7 @@ import { IntlProvider } from "react-intl";
 import routes from "./routes";
 import Preloader from "./components/loaders/preloader";
 import { useLocation, matchPath, Redirect } from "react-router-dom";
-import { FALLBACK_LOCALE } from "./utils/constants";
+import { FALLBACK_LOCALE, ALLOWED_LOCALES } from "./utils/constants";
 import { inject } from "mobx-react";
 const LANG_STYLESHEET = document.querySelector("#lang-css");
 const HTML = document.querySelector("html");
@@ -30,10 +30,20 @@ const App = ({ updateLocale, isLangChanging }) => {
     ? params.locale
     : localStorage.getItem("locale") || FALLBACK_LOCALE;
 
+  if (!ALLOWED_LOCALES.includes(lang)) {
+    return (
+      <Redirect
+        to={`/${localStorage.getItem("locale") ||
+          FALLBACK_LOCALE}/page-not-found`}
+      />
+    );
+  }
+
   // * To make sure if the user vists from url to set the visited locale as the default one
   if (localStorage.getItem("locale") !== lang) {
     updateLocale(lang);
   }
+
   LANG_STYLESHEET.href = `/libs/bootstrap/bootstrap-${lang}.min.css`;
   HTML.dir = lang === "ar" ? "rtl" : "ltr";
   HTML.lang = lang;

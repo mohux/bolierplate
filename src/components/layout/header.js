@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import "./styles/header.scss";
 import {
   Collapse,
@@ -35,15 +35,16 @@ const links = [
   }
 ];
 
-const Header = ({ updateLocale }) => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const { locale } = useIntl();
   return (
     <header className="header">
       <Navbar color="dark" className="navbar-dark py-3" light expand="md">
-        <NavbarBrand href="/">
+        <NavLink className="navbar-brand" to={`/${locale}`}>
           <FormattedMessage id="titles:uxbert_boilerplate" />
-        </NavbarBrand>
+        </NavLink>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="w-100" navbar>
