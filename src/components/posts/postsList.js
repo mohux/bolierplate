@@ -3,6 +3,7 @@ import { inject, observer } from "mobx-react";
 import NavLink from "components/shared/navLink";
 const PostsList = ({ posts = [], error, loading, fetchPosts }) => {
   useEffect(() => {
+    // * fetching posts once, this is similar to component did mount, it will watch fetchPosts if its changed or not
     fetchPosts();
   }, [fetchPosts]);
   return (
