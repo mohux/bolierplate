@@ -1,12 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import { Provider } from "mobx-react";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-
+import App from "./App";
+import store from "./stores";
+import { GOOGLE_ANALYTICS_UA } from "./utils/constants";
+import { initialize } from "react-ga";
+initialize(GOOGLE_ANALYTICS_UA);
 const Application = (
   <BrowserRouter basename="/">
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </BrowserRouter>
 );
 

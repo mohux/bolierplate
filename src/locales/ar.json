@@ -1,5 +1,16 @@
 {
-  "Links=>home": "الرئيسية",
-  "Links=>login": "تسجيل الدخول",
-  "Links=>register": "تسجيل حساب"
+  "Links:home": "الرئيسية",
+  "Links:login": "تسجيل الدخول",
+  "Links:register": "تسجيل حساب",
+
+  "titles:uxbert_boilerplate": "قالب اوكسبرت",
+  "titles:home_page": "الرئيسية",
+  "titles:login_page": "تسجيل الدخول",
+
+  "inputs:email_placeholder": "الرجاء إدخال البريد الإلكتروني",
+  "inputs:email_title": "البريد الإلكتروني",
+  "inputs:email_error": "يجب أن يكون بريداً إلكترونيا",
+  "inputs:password_placeholder": "الرجاء إدخال رمز المرور",
+  "inputs:password_title": "رمز المرور",
+  "inputs:password_error": "يجب أن يتكون رمز المرور من 3 خانات على الأقل"
 }

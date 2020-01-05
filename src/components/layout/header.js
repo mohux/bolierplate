@@ -1,38 +1,64 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
-import {} from 'reactstrap';
+import "./styles/header.scss";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem
+} from "reactstrap";
+import NavLink from "../shared/navLink";
+import LocaleSwitcher from "../localeSwitcher";
+
 const links = [
   {
     to: "/",
     exact: true,
-    title: <FormattedMessage id="Links=>home" />
+    title: <FormattedMessage id="Links:home" />
   },
   {
     to: "/login",
     exact: true,
-    title: <FormattedMessage id="Links=>login" />
+    title: <FormattedMessage id="Links:login" />
   },
   {
     to: "/register",
     exact: true,
-    title: <FormattedMessage id="Links=>register" />
+    title: <FormattedMessage id="Links:register" />
   }
 ];
 
-const Header = () => {
+const Header = ({ updateLocale }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
   return (
-    <div>
-      <ul>
-        {links.map((link, idx) => (
-          <li key={idx}>
-            <NavLink activeClassName="active" to={link.to} exact={link.exact}>
-              {link.title}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <header className="header">
+      <Navbar color="dark" className="navbar-dark py-3" light expand="md">
+        <NavbarBrand href="/">
+          <FormattedMessage id="titles:uxbert_boilerplate" />
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="w-100" navbar>
+            {links.map((link, idx) => (
+              <NavItem key={idx}>
+                <NavLink
+                  className="nav-link"
+                  activeClassName="active"
+                  to={link.to}
+                  exact={link.exact}
+                >
+                  {link.title}
+                </NavLink>
+              </NavItem>
+            ))}
+            <LocaleSwitcher />
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </header>
   );
 };
 

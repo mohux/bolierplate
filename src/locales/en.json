@@ -1,5 +1,16 @@
 {
-  "Links=>home": "Home",
-  "Links=>login": "Login",
-  "Links=>register": "Register"
+  "Links:home": "Home",
+  "Links:login": "Login",
+  "Links:register": "Register",
+
+  "titles:uxbert_boilerplate": "Uxbert Boilerplate",
+  "titles:home_page": "Home",
+  "titles:login_page":"Login",
+
+  "inputs:email_placeholder":"Please enter your email",
+  "inputs:email_title":"Email",
+  "inputs:email_error":"Value should be an email",
+  "inputs:password_placeholder":"Please enter your password",
+  "inputs:password_title":"Password",
+  "inputs:password_error":"Password should be at least 3 characters"
 }
