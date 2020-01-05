@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import "./styles/header.scss";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import NavLink from "../shared/navLink";
 import LocaleSwitcher from "../localeSwitcher";
 
@@ -37,11 +31,10 @@ const links = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const { locale } = useIntl();
   return (
     <header className="header">
       <Navbar color="dark" className="navbar-dark py-3" light expand="md">
-        <NavLink className="navbar-brand" to={`/${locale}`}>
+        <NavLink className="navbar-brand" to={`/`}>
           <FormattedMessage id="titles:uxbert_boilerplate" />
         </NavLink>
         <NavbarToggler onClick={toggle} />

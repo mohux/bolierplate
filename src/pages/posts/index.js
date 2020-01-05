@@ -13,7 +13,7 @@ const Posts = () => {
 
   return (
     <Container className="posts-container py-4">
-      <Meta title="Posts" />
+      <Meta title="Posts" ogImage="/images/sample.jpg" />
       <PostsList/>
     </Container>
   );

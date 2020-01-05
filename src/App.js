@@ -43,7 +43,6 @@ const App = ({ updateLocale, isLangChanging }) => {
   if (localStorage.getItem("locale") !== lang) {
     updateLocale(lang);
   }
-
   LANG_STYLESHEET.href = `/libs/bootstrap/bootstrap-${lang}.min.css`;
   HTML.dir = lang === "ar" ? "rtl" : "ltr";
   HTML.lang = lang;
