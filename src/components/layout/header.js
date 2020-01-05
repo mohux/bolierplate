@@ -27,6 +27,11 @@ const links = [
     to: "/register",
     exact: true,
     title: <FormattedMessage id="Links:register" />
+  },
+  {
+    to: "/posts",
+    exact: true,
+    title: <FormattedMessage id="Links:posts" />
   }
 ];
 

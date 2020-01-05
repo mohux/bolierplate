@@ -1,0 +1,17 @@
+@import "src/scss/variables.scss";
+
+.posts-container {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      a {
+        color: $primary;
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+  }
+}
