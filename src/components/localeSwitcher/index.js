@@ -2,6 +2,7 @@ import React from "react";
 import { observer, inject } from "mobx-react";
 import { NavItem } from "reactstrap";
 import { useHistory, matchPath } from "react-router-dom";
+import { names } from "locales";
 
 const LocaleSwitcher = ({ updateLocale }) => {
   const { replace, location } = useHistory();
@@ -20,23 +21,20 @@ const LocaleSwitcher = ({ updateLocale }) => {
 
   return (
     <div className="d-flex lang-switcher ml-auto">
-      <NavItem>
-        <button
-          onClick={() => changeLanguage("ar")}
-          className="nav-link btn mr-1"
-        >
-          العربية
-        </button>
-      </NavItem>
-      <NavItem>
-        <button onClick={() => changeLanguage("en")} className="nav-link btn">
-          English
-        </button>
-      </NavItem>
+      {Object.keys(names).map(langKey => (
+        <NavItem key={langKey}>
+          <button
+            onClick={() => changeLanguage(names[langKey].path)}
+            className="nav-link btn mr-1"
+          >
+            {names[langKey].name}
+          </button>
+        </NavItem>
+      ))}
     </div>
   );
 };
 
 export default inject(state => ({
-  updateLocale: state.store.locale.updateLocale,
+  updateLocale: state.store.locale.updateLocale
 }))(observer(LocaleSwitcher));

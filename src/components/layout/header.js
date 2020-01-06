@@ -32,31 +32,29 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <header className="header">
-      <Navbar color="dark" className="navbar-dark py-3" light expand="md">
-        <NavLink className="navbar-brand" to={`/`}>
-          <FormattedMessage id="titles:uxbert_boilerplate" />
-        </NavLink>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="w-100" navbar>
-            {links.map((link, idx) => (
-              <NavItem key={idx}>
-                <NavLink
-                  className="nav-link"
-                  activeClassName="active"
-                  to={link.to}
-                  exact={link.exact}
-                >
-                  {link.title}
-                </NavLink>
-              </NavItem>
-            ))}
-            <LocaleSwitcher />
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </header>
+    <Navbar color="dark" className="navbar-dark py-3" light expand="md">
+      <NavLink className="navbar-brand" to={`/`}>
+        <FormattedMessage id="titles:uxbert_boilerplate" />
+      </NavLink>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <Nav className="w-100" navbar>
+          {links.map((link, idx) => (
+            <NavItem key={idx}>
+              <NavLink
+                className="nav-link"
+                activeClassName="active"
+                to={link.to}
+                exact={link.exact}
+              >
+                {link.title}
+              </NavLink>
+            </NavItem>
+          ))}
+          <LocaleSwitcher />
+        </Nav>
+      </Collapse>
+    </Navbar>
   );
 };
 

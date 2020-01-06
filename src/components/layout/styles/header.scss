@@ -1,9 +1,8 @@
 @import "src/scss/variables.scss";
-.header {
-  .lang-switcher {
-    button {
-      background-color: $primary;
-      min-width: 75px;
-    }
+
+.lang-switcher {
+  button {
+    background-color: $primary;
+    min-width: 75px;
   }
 }
