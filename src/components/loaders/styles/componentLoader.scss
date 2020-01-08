@@ -1,0 +1,33 @@
+@import "src/scss/variables.scss";
+
+$size: 50px;
+$space: 4px;
+
+.component-loader {
+  display: inline-block;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $secondary;
+  position: relative;
+  &::after {
+    content: "";
+    width: $size - $space;
+    height: $size - $space;
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    left: $space / 2;
+    top: $space / 2;
+    animation: componentLoaderAnimation 500ms alternate linear infinite;
+  }
+
+  @keyframes componentLoaderAnimation {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0);
+    }
+  }
+}

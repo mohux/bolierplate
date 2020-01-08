@@ -1,11 +1,3 @@
 {
-  "plugins": [
-    [
-      "babel-plugin-root-import",
-      {
-        "rootPathSuffix": "./",
-        "rootPathPrefix": "~/"
-      }
-    ]
-  ]
+  "plugins": [[]]
 }

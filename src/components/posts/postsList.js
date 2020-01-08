@@ -1,6 +1,7 @@
 import React, { useEffect, Fragment } from "react";
 import { inject, observer } from "mobx-react";
 import NavLink from "components/shared/navLink";
+import ComponentLoader from "components/loaders/componentLoader";
 const PostsList = ({ posts = [], error, loading, fetchPosts }) => {
   useEffect(() => {
     // * fetching posts once, this is similar to component did mount, it will watch fetchPosts if its changed or not
@@ -8,10 +9,9 @@ const PostsList = ({ posts = [], error, loading, fetchPosts }) => {
   }, [fetchPosts]);
   return (
     <Fragment>
-      {loading && <div className="display-4">Loading..</div>}
+      {loading && <ComponentLoader/>}
       <ul>
-        {!loading &&
-          posts &&
+        {posts &&
           posts.map(({ id, title, body }) => (
             <li key={id}>
               <h4>
